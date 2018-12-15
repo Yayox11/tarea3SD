@@ -1,0 +1,19 @@
+{"requerimientos": [
+
+  {"id": 1,
+
+    "cargo": "doctor",
+
+    "pacientes": [{"1": "recetar metformina"},
+
+      {"1": "recetar ibuprofeno"},
+
+      {"1": "pedir tomografia"},
+
+      {"1":"colocar cateter"}
+
+    ]}
+
+]
+
+}

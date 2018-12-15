@@ -39,25 +39,30 @@ public class Hospital {
         return this.anios_totales;
     }
 
-    public void editar_procedimientos(JsonObject datos){
-
-    }
-
-    public void editar_remedios(JsonObject datos){
-
-    }
 
 
     public static void main(String[] args){
         JsonParser parser = new JsonParser();
         Object object = null;
         try {
-            object = parser.parse(new FileReader("C:\\Users\\Usuario\\Desktop\\Yayo\\2018-2\\Sistemas Distribuidos\\tarea_3\\src\\json\\test.json"));
+            object = parser.parse(new FileReader("C:\\Users\\Usuario\\Desktop\\Yayo\\2018-2\\Sistemas Distribuidos\\tarea_3\\src\\json\\requerimientos.json"));
             JsonObject jobject = (JsonObject) object;
-            JsonArray arreglo = jobject.getAsJsonArray("Doctor");
-            System.out.println(((JsonObject)arreglo.get(0)).get("id"));
-            String message = jobject.get("Doctor").toString();
-            System.out.println(message);
+            Requerimientos requerimientos = new Requerimientos(jobject);
+            object = parser.parse(new FileReader("C:\\Users\\Usuario\\Desktop\\Yayo\\2018-2\\Sistemas Distribuidos\\tarea_3\\src\\json\\pacientes.json"));
+            JsonArray jobject2 = (JsonArray) object;
+            Paciente pacientes = new Paciente(jobject2);
+            JsonObject req = (JsonObject) requerimientos.obtener_requerimientos().get(0);
+            pacientes.editar_procedimiento(req);
+            System.out.println(pacientes.datos_paciente(1));
+
+
+
+            //JsonPrimitive paico = new JsonPrimitive("ufm3n");
+            //((JsonObject)arreglo.get(0));
+            //System.out.println(arreglo.get(0));
+            //System.out.println(((JsonArray)(((JsonObject) arreglo.get(0)).get("estudios"))).get(0));
+            //String message = jobject.get("Doctor").toString();
+            //System.out.println(message);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
