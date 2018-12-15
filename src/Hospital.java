@@ -52,7 +52,6 @@ public class Hospital {
             JsonArray jobject2 = (JsonArray) object;
             Paciente pacientes = new Paciente(jobject2);
             JsonObject req = (JsonObject) requerimientos.obtener_requerimientos().get(0);
-            pacientes.editar_procedimiento(req);
             System.out.println(pacientes.datos_paciente(1));
 
 

@@ -28,4 +28,34 @@
 
   [{"recetados": []}, {"suministrados" :[]}]
 
+},{"paciente_id": 2,
+
+  "datos personales":
+
+  [{
+
+    "nombre":"Choc Man",
+
+    "rut":"00.000.000-1",
+
+    "edad":"69"
+
+  }],
+
+  "enfermedades":
+
+  ["cancer", "sida"],
+
+  "tratamientos/procedimientos":
+
+  [{"asignados": []}, {"completados" :[]}],
+
+  "examenes":
+
+  [{"realizados": []}, {"no realizados" :[]}],
+
+  "medicamentos":
+
+  [{"recetados": []}, {"suministrados" :[]}]
+
 }]

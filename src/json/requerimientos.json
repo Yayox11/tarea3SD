@@ -6,11 +6,24 @@
 
     "pacientes": [{"1": "recetar metformina"},
 
-      {"1": "recetar ibuprofeno"},
+      {"2": "recetar ibuprofeno"},
 
       {"1": "pedir tomografia"},
 
       {"1":"colocar cateter"}
+
+    ]},
+  {"id": 2,
+
+    "cargo": "doctor",
+
+    "pacientes": [{"1": "recetar PicoenelOjo"},
+
+      {"2": "recetar tulazo"},
+
+      {"1": "pedir rayosx"},
+
+      {"1":"colocar inyeccion"}
 
     ]}
 
