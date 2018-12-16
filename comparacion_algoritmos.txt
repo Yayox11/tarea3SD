@@ -1,0 +1,26 @@
+Comparación de Algoritmos:
+
+1) 	Si los cambios que quiere hacer cada hospital se envían al coordinador actual y éste se encarga
+	de progagarlos, el número de mensajes enviados es menor en comparación al segundo algoritmo, puesto
+	que cada hospital sólo envía un mensaje al coordinador y éste se encarga de propagar los mensajes,
+	por lo que la cantidad de mensajes sería, n mensajes al servidor y n mensajes de respuesta, donde n
+	es la cantidad de nodos.
+	La latencia sin embargo, se ve aumentada puesto que se le aplica más carga al coordinador ya que debe
+	procesar los cambios de todos los nodos, por lo que a mayor cantidad de nodos, mayor será la latencia 
+	existente. La mantención de la consistencia es centralizada, y enfocada en el coordinador, por lo que
+	es más simple de implementar.
+
+2) 	La segunda estrategia, en donde cada hospital está encargado de enviar a todos los otros hospitales sus
+	sus cambios, significa un mayor número de mensajes puesto que cada nodo debe enviar un mensaje a todos los 
+	otros nodos indicando los cambios pertinentes, por lo que cada nodo enviaría n-1 mensajes, siendo un total de
+	mensajes (n-1)(n-1). 
+	La latencia se ve disminuida en comparación al algoritmo 1), puesto que no hay carga extra que se le 
+	pasa al coordinador, ya que son los mismos nodos encargados de mantener la consistencia en los archivos.
+	La mantención de la consistencia es descentralizada, por lo que es un poco mas compleja de implementar
+	pero, en caso de que se caiga el coordinador no existiría tanto problema ya que no es el coordinador
+	el encargado de mantener la consistencia completamente.
+
+En conclusión, para este caso, basta con implementar el método 1) ya que es más simple y no poseemos una cantidad grande
+de nodos que se conectan al coordinador, por lo que la latencia no se verá incrementada sustancialmente.
+En caso de que existiese una cantidad de nodos mayor, la opción 2) sería mejor, además que se manejaría el tema de
+la consistencia de mejor forma, aun que sea un poco mas compleja de implementar. 
