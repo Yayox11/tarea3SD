@@ -20,7 +20,7 @@ public class MultiServer {
         Paciente paciente = new Paciente(pacientes);
 
         //Servidor escuchando en el puerto 6000
-        ServerSocket ss = new ServerSocket(6000);
+        ServerSocket ss = new ServerSocket(53000);
         Socket s;
 
         while(true){

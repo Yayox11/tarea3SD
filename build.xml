@@ -10,7 +10,7 @@
         <fileset dir="${lib.dir}" includes="**/*.jar"/>
     </path>
 
-    <property name="main-class"  value="MultiServer2"/>
+    <property name="main-class"  value="MultiServer"/>
 
 
     <target name="clean">
