@@ -12,6 +12,7 @@ import java.util.*;
 
 public class MultiServer {
     public static void main(String[] args) throws IOException{
+        System.out.println("Servidor arriba!!!!");
         JsonParser parser = new JsonParser();
         Object object = null;
         object = parser.parse(new FileReader("/Users/jp/Desktop/tarea3SD/src/json/pacientes.json"));

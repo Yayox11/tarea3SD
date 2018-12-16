@@ -40,8 +40,7 @@ public class Hospital {
     }
 
 
-
-    public static void main(String[] args){
+   /* public static void main(String[] args){
         JsonParser parser = new JsonParser();
         Object object = null;
         try {
@@ -65,6 +64,6 @@ public class Hospital {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 }
