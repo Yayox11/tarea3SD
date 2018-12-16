@@ -24,7 +24,7 @@ public class HacerRequerimientos extends Thread {
             int sizeRequerimientos = arrayRequerimientos.size();
 
             for (int i = 0; i < sizeRequerimientos; i++){
-                Socket client = new Socket("localhost", 6000);
+                Socket client = new Socket("10.6.40.193", 6000);
                 DataOutputStream salida = new DataOutputStream(client.getOutputStream());
                 JsonObject requerimiento = (JsonObject) arrayRequerimientos.get(i);
                 salida.writeUTF(requerimiento.toString());
