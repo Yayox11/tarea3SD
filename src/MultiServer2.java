@@ -15,9 +15,9 @@ public class MultiServer2 {
         //Servidor escuchando en el puerto 6000
         ServerSocket ss = new ServerSocket(6001);
         Socket s;
-        Socket cliente = new Socket("localhost",6000);
+        Socket cliente = new Socket("10.6.40.196",6000);
 
-        object = parser.parse(new FileReader("/Users/jp/Desktop/tarea3SD/src/json/pacientes.json"));
+        object = parser.parse(new FileReader("/root/tarea3SD/src/json/pacientes.json"));
         JsonArray jobject2 = (JsonArray) object;
         Paciente pacientes = new Paciente(jobject2);
         JsonObject paciente = pacientes.datos_paciente(1);
