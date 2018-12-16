@@ -1,14 +1,12 @@
 JFLAGS = -g
 JC = javac
 .SUFFIXES: .java .class
-.java.class:
-        $(JC) $(JFLAGS) $*.java
+.java.class: $(JC) $(JFLAGS) $*.java
 
-CLASSES : \
+CLASSES: \
         Hospital.java \
         Paciente.java \
-        Requerimientos.java \
-        Main.java
+        Requerimientos.java
 
 default: classes
 
