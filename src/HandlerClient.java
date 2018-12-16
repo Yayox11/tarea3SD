@@ -53,11 +53,25 @@ public class HandlerClient extends Thread {
         }
     }
 
+    public static synchronized void escribirArchivo(){
+        pacientes.escribirServidor("/root/tarea3SD/src/json/pacientes.json");
+    }
+
     public static synchronized void enviarCambios(){
         try {
-            Socket maquinas54 = new Socket("10.6,40.194", 6001);
+            Socket maquina54 = new Socket("10.6,40.194", 6001);
             Socket maquina55 =  new Socket("10.6,40.195", 6001);
             Socket maquina56 = new Socket("10.6,40.196", 6001);
+
+            DataOutputStream o54 = new DataOutputStream( maquina54.getOutputStream());
+            DataOutputStream o55 = new DataOutputStream( maquina55.getOutputStream());
+            DataOutputStream o56 = new DataOutputStream( maquina56.getOutputStream());
+
+            o54.writeUTF(pacientes.toString());
+            o55.writeUTF(pacientes.toString());
+            o56.writeUTF(pacientes.toString());
+
+
         }
         catch (Exception e){
 
@@ -102,12 +116,11 @@ public class HandlerClient extends Thread {
                     colaReqPendientes.add(req);
                 }
             }
+            escribirArchivo();
+            enviarCambios();
             System.out.println(requerimientos);
-
             getElement();
             numThreads++;
-            //System.out.println(lista_pacientes_editando.size());
-
         }
 
         catch (IOException e){

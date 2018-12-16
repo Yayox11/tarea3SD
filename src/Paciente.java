@@ -79,6 +79,20 @@ public class Paciente {
         }
     }
 
+    public void escribirServidor(String path){
+        try {
+            Writer file = new FileWriter(path);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String json = gson.toJson(this.datos_pacientes);
+            file.write(json);
+            file.close();
+            System.out.println("Actualizacion correcta");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void archivo_log(String info){
         Logger logger = Logger.getLogger("MyLog");
         FileHandler fh;
