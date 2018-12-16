@@ -13,7 +13,6 @@
     <property name="main-class"  value="oata.HelloWorld"/>
 
 
-
     <target name="clean">
         <delete dir="${build.dir}"/>
     </target>
