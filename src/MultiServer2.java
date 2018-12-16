@@ -20,6 +20,7 @@ public class MultiServer2 {
         object = parser.parse(new FileReader("/root/tarea3SD/src/json/pacientes.json"));
         JsonArray jobject2 = (JsonArray) object;
         Paciente pacientes = new Paciente(jobject2);
+        pacientes.archivo_log("");
         JsonObject paciente = pacientes.datos_paciente(1);
 
        DataOutputStream salida_servidor = new DataOutputStream(cliente.getOutputStream());

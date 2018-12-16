@@ -40,7 +40,7 @@ public class Hospital {
     }
 
 
-   /* public static void main(String[] args){
+    /*public static void main(String[] args){
         JsonParser parser = new JsonParser();
         Object object = null;
         try {
@@ -50,6 +50,8 @@ public class Hospital {
             object = parser.parse(new FileReader("C:\\Users\\Usuario\\Desktop\\Yayo\\2018-2\\Sistemas Distribuidos\\tarea_3\\src\\json\\pacientes.json"));
             JsonArray jobject2 = (JsonArray) object;
             Paciente pacientes = new Paciente(jobject2);
+            pacientes.archivo_log("holi");
+            pacientes.archivo_log("teni pololi");
             //JsonObject req = (JsonObject) requerimientos.obtener_requerimientos().get(0);
             //System.out.println(pacientes.datos_paciente(1));
             //pacientes.escribir_pacientes("C:\\Users\\Usuario\\Desktop\\Yayo\\2018-2\\Sistemas Distribuidos\\tarea_3\\src\\json\\actualizacion.json");
