@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e8c9300-4e11-4c79-aeed-1688bdd69852" name="Default" comment="ant listo">
+    <list default="true" id="3e8c9300-4e11-4c79-aeed-1688bdd69852" name="Default" comment="ruta archivo json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MultiServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MultiServer.java" afterDir="false" />
     </list>
@@ -196,7 +196,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544979967035" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544980052308" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../gson-2.6.2.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -280,7 +280,7 @@
       <workItem from="1544660369387" duration="10407000" />
       <workItem from="1544722032398" duration="25618000" />
       <workItem from="1544906285856" duration="16905000" />
-      <workItem from="1544977598197" duration="1748000" />
+      <workItem from="1544977598197" duration="1825000" />
     </task>
     <task id="LOCAL-00001" summary="construir hospital">
       <created>1544726957820</created>
@@ -338,11 +338,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544979326050</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ruta archivo json">
+      <created>1544979983950</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1544979983950</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70089000" />
+    <option name="totallyTimeSpent" value="70166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -393,7 +400,8 @@
     <MESSAGE value="requerimientos y pacientes extra" />
     <MESSAGE value="makefile y libreria" />
     <MESSAGE value="ant listo" />
-    <option name="LAST_COMMIT_MESSAGE" value="ant listo" />
+    <MESSAGE value="ruta archivo json" />
+    <option name="LAST_COMMIT_MESSAGE" value="ruta archivo json" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_1.snippet" />

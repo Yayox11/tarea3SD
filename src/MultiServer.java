@@ -15,7 +15,7 @@ public class MultiServer {
         System.out.println("Servidor arriba!!!!");
         JsonParser parser = new JsonParser();
         Object object = null;
-        object = parser.parse(new FileReader("/root/src/json/pacientes.json"));
+        object = parser.parse(new FileReader("/root/tarea3SD/src/json/pacientes.json"));
         JsonArray pacientes = (JsonArray) object;
         Paciente paciente = new Paciente(pacientes);
 
