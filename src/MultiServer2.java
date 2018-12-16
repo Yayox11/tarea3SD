@@ -23,8 +23,8 @@ public class MultiServer2 {
         pacientes.archivo_log("");
         JsonObject paciente = pacientes.datos_paciente(1);
 
-       DataOutputStream salida_servidor = new DataOutputStream(cliente.getOutputStream());
-       DataInputStream entrada_servidor = new DataInputStream(cliente.getInputStream());
+        DataOutputStream salida_servidor = new DataOutputStream(cliente.getOutputStream());
+        DataInputStream entrada_servidor = new DataInputStream(cliente.getInputStream());
         HacerRequerimientos threadReq = new HacerRequerimientos();
         threadReq.start();
         salida_servidor.writeUTF(paciente.toString());
