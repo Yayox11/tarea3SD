@@ -71,6 +71,10 @@ public class HandlerClient extends Thread {
             o55.writeUTF(pacientes.toString());
             o56.writeUTF(pacientes.toString());
 
+            maquina54.close();
+            maquina55.close();
+            maquina56.close();
+
 
         }
         catch (Exception e){
@@ -117,8 +121,8 @@ public class HandlerClient extends Thread {
                     colaReqPendientes.add(req);
                 }
             }
-            escribirArchivo();
             enviarCambios();
+            escribirArchivo();
             System.out.println(requerimientos);
             getElement();
             numThreads++;
