@@ -103,6 +103,7 @@ public class HandlerClient extends Thread {
                 }
             }
             while(quedanReq()){
+                System.out.println("SE QUEDO EN EL WHILE");
                 JsonObject req = colaReqPendientes.element().getAsJsonObject();
                 String[] split = req.toString().split(" ");
                 String id_pacienteEditar = split[0];
