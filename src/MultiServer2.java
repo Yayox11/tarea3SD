@@ -27,9 +27,9 @@ public class MultiServer2 {
         DataInputStream entrada_servidor = new DataInputStream(cliente.getInputStream());
         HacerRequerimientos threadReq = new HacerRequerimientos();
         threadReq.start();
-        salida_servidor.writeUTF(paciente.toString());
-        String mensajeServidor = entrada_servidor.readUTF();
-        System.out.println(mensajeServidor);
+        //salida_servidor.writeUTF(paciente.toString());
+        //String mensajeServidor = entrada_servidor.readUTF();
+        //System.out.println(mensajeServidor);
 
         while(true){
             try {
