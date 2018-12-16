@@ -52,7 +52,7 @@ public class Hospital {
             Paciente pacientes = new Paciente(jobject2);
             //JsonObject req = (JsonObject) requerimientos.obtener_requerimientos().get(0);
             //System.out.println(pacientes.datos_paciente(1));
-            pacientes.escribir_pacientes("C:\\Users\\Usuario\\Desktop\\Yayo\\2018-2\\Sistemas Distribuidos\\tarea_3\\src\\json\\actualizacion.json");
+            //pacientes.escribir_pacientes("C:\\Users\\Usuario\\Desktop\\Yayo\\2018-2\\Sistemas Distribuidos\\tarea_3\\src\\json\\actualizacion.json");
 
 
 
