@@ -17,7 +17,7 @@ public class MultiServer2 {
         Socket s;
         //Socket cliente = new Socket("10.6.40.193",53000);
 
-        object = parser.parse(new FileReader("/root/tarea3SD/src/json/pacientes.json"));
+        object = parser.parse(new FileReader("/root/tarea3SD/src/json/requerimientos.json"));
         JsonArray jobject2 = (JsonArray) object;
         Paciente pacientes = new Paciente(jobject2);
         JsonObject paciente = pacientes.datos_paciente(1);

@@ -17,7 +17,7 @@ public class HacerRequerimientos extends Thread {
         try {
             JsonParser parser = new JsonParser();
             Object object = null;
-            object = parser.parse(new FileReader("/Users/jp/Desktop/tarea3SD/src/json/requerimientos.json"));
+            object = parser.parse(new FileReader("/root/tarea3SD/src/json/requerimientos.json"));
             JsonObject jobject = (JsonObject) object;
             Requerimientos requerimientos = new Requerimientos(jobject);
             JsonArray arrayRequerimientos = requerimientos.obtener_requerimientos();
