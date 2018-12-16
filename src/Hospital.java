@@ -45,10 +45,10 @@ public class Hospital {
         JsonParser parser = new JsonParser();
         Object object = null;
         try {
-            object = parser.parse(new FileReader("C:\\Users\\Usuario\\Desktop\\Yayo\\2018-2\\Sistemas Distribuidos\\tarea_3\\src\\json\\requerimientos.json"));
+            object = parser.parse(new FileReader("/Users/jp/Desktop/tarea3SD/src/json/requerimientos.json"));
             JsonObject jobject = (JsonObject) object;
             Requerimientos requerimientos = new Requerimientos(jobject);
-            object = parser.parse(new FileReader("C:\\Users\\Usuario\\Desktop\\Yayo\\2018-2\\Sistemas Distribuidos\\tarea_3\\src\\json\\pacientes.json"));
+            object = parser.parse(new FileReader("/Users/jp/Desktop/tarea3SD/src/json/pacientes.json"));
             JsonArray jobject2 = (JsonArray) object;
             Paciente pacientes = new Paciente(jobject2);
             JsonObject req = (JsonObject) requerimientos.obtener_requerimientos().get(0);
