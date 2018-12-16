@@ -1,12 +1,19 @@
 JFLAGS = -g
-JC = javac
+JC = javac -sourcepath / -classpath gson/gson-2.6.2.jar
+SOURCES = Requerimientos.java Paciente.java Hospital.java HacerRequerimientos.java HandleClient.java Multiserver.java Multiserver2.java
 .SUFFIXES: .java .class
-.java.class: $(JC) $(JFLAGS) $*.java
+.java.class: ;$(JC) $(JFLAGS) $*.java
+LIBS = gson/gson-2.6.2.jar
 
-CLASSES: \
-        Hospital.java \
-        Paciente.java \
-        Requerimientos.java
+
+CLASSES = \
+    HacerRequerimientos.java \
+    Requerimientos.java \
+    Paciente.java \
+    Hospital.java \
+    HandlerClient.java \
+    Multiserver.java \
+    Multiserver2.java
 
 default: classes
 

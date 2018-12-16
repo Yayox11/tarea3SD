@@ -5,12 +5,12 @@
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
-    <property name="lib.dir"     value="./.idea/libraries"/>
+    <property name="lib.dir"     value="./src/gson/"/>
     <path id="classpath">
         <fileset dir="${lib.dir}" includes="**/*.jar"/>
     </path>
 
-    <property name="main-class"  value="oata.HelloWorld"/>
+    <property name="main-class"  value="MultiServer2"/>
 
 
     <target name="clean">

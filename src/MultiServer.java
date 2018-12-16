@@ -12,14 +12,15 @@ import java.util.*;
 
 public class MultiServer {
     public static void main(String[] args) throws IOException{
+        System.out.println("Servidor arriba!!!!");
         JsonParser parser = new JsonParser();
         Object object = null;
-        object = parser.parse(new FileReader("/Users/jp/Desktop/tarea3SD/src/json/pacientes.json"));
+        object = parser.parse(new FileReader("/root/tarea3SD/src/json/pacientes.json"));
         JsonArray pacientes = (JsonArray) object;
         Paciente paciente = new Paciente(pacientes);
 
         //Servidor escuchando en el puerto 6000
-        ServerSocket ss = new ServerSocket(6000);
+        ServerSocket ss = new ServerSocket(53000);
         Socket s;
 
         while(true){
