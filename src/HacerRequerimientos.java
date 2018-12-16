@@ -10,9 +10,9 @@ import java.net.Socket;
 
 public class HacerRequerimientos extends Thread {
     private DataOutputStream salida_servidor;
-    public HacerRequerimientos(DataOutputStream salida_servidor){
-        this.salida_servidor = salida_servidor;
-    }
+    //public HacerRequerimientos(DataOutputStream salida_servidor){
+   //     this.salida_servidor = salida_servidor;
+    //}
     public void run(){
         try {
             JsonParser parser = new JsonParser();
