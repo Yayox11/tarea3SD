@@ -117,7 +117,7 @@ public class HandlerClient extends Thread {
                     colaReqPendientes.add(req);
                 }
             }
-            //Verificación de que quedan requerimientos por satisfacer
+            //Verificacion de que quedan requerimientos por satisfacer
             while(quedanReq()){
                 JsonObject req = colaReqPendientes.element().getAsJsonObject();
                 String[] split = req.toString().split(" ");
