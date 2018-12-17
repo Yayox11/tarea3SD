@@ -41,9 +41,17 @@ public class MultiServer2 {
                 String mensaje = dis.readUTF();// Se lee el mensaje
                 JsonParser parser2 = new JsonParser();
                 JsonObject pac = parser.parse(mensaje).getAsJsonObject();
-                JsonArray pacs = pac.getAsJsonArray();
-                pacientes.escribir_pacientes("/root/tarea3SD/src/json/pacientes.json", pacs);
-                System.out.println("Mensaje recibido: " + mensaje);
+                if (pac.get("tipo").equals("requerimiento")) {
+                    JsonArray pacs = pac.get("mensaje").getAsJsonArray();
+                    pacientes.escribir_pacientes("/root/tarea3SD/src/json/pacientes.json", pacs);
+                    System.out.println("Copia Recibida");
+                }
+
+                else{
+                    pacientes.archivo_log(pac.get("mensaje").getAsString());
+                    System.out.println("Log recibido");
+                }
+
 
             }
 

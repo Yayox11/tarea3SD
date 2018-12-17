@@ -19,6 +19,7 @@ public class MultiServer {
         object = parser.parse(new FileReader("/root/tarea3SD/src/json/pacientes.json"));
         JsonArray pacientes = (JsonArray) object;
         Paciente paciente = new Paciente(pacientes);
+        paciente.archivo_log("");
 
         //Servidor escuchando en el puerto 53000
         ServerSocket ss = new ServerSocket(53000);

@@ -72,12 +72,17 @@ public class HandlerClient extends Thread {
                 JsonObject pac = pacientes.getPacientes().get(i).getAsJsonObject();
                 String pacString = pac.toString();
                 cadena = cadena + pacString;
+
             }
+            JsonObject men = new JsonObject();
+            men.addProperty("tipo", "requerimiento");
+            men.addProperty("mensaje", cadena);
+
             //System.out.println("Enviando datos: " + cadena);
             //Envio de los datos hacia los clientes
-            o54.writeUTF(cadena);
-            o55.writeUTF(cadena);
-            o56.writeUTF(cadena);
+            o54.writeUTF(men.toString());
+            o55.writeUTF(men.toString());
+            o56.writeUTF(men.toString());
             //Cierre de los sockets
             maquina54.close();
             maquina55.close();
@@ -86,6 +91,37 @@ public class HandlerClient extends Thread {
 
         }
         catch (Exception e){
+
+        }
+
+    }
+
+    public static void envLogs(String log ){
+        try{
+            //Sockets a enviar los logs
+            Socket maquina54 = new Socket("10.6.40.194", 53001);
+            Socket maquina55 =  new Socket("10.6.40.195", 53001);
+            Socket maquina56 = new Socket("10.6.40.196", 53001);
+            // Output Streams
+            DataOutputStream o54 = new DataOutputStream( maquina54.getOutputStream());
+            DataOutputStream o55 = new DataOutputStream( maquina55.getOutputStream());
+            DataOutputStream o56 = new DataOutputStream( maquina56.getOutputStream());
+
+            JsonObject men = new JsonObject();
+            men.addProperty("tipo", "log");
+            men.addProperty("mensaje", "log");
+            o54.writeUTF(men.toString());
+            o55.writeUTF(men.toString());
+            o56.writeUTF(men.toString());
+
+            //Cierre de los sockets
+            maquina54.close();
+            maquina55.close();
+            maquina56.close();
+
+
+        } catch (Exception e){
+
 
         }
 
@@ -111,6 +147,9 @@ public class HandlerClient extends Thread {
                     lista_pacientes_editando.add(id_pacienteEditar);
                     editarPacientes(req, usuario.get("cargo").getAsString());
                     removeEditando(id_pacienteEditar);
+                    String log = usuario.get("cargo").getAsString() + " " + usuario.get("id").getAsString() + " paciente" +id_pacienteEditar;
+                    pacientes.archivo_log(log);
+                    envLogs(log);
                 }
                 else{
                     //Agrega a la cola de requerimientos pendientes
@@ -127,6 +166,10 @@ public class HandlerClient extends Thread {
                     lista_pacientes_editando.add(id_pacienteEditar);
                     editarPacientes(req, usuario.get("cargo").getAsString());
                     removeEditando(id_pacienteEditar);
+                    String log = usuario.get("cargo").getAsString() + " " + usuario.get("id").getAsString() + " paciente " + id_pacienteEditar;
+                    pacientes.archivo_log(log);
+                    envLogs(log);
+
                 }
                 else{
                     colaReqPendientes.remove(req);
