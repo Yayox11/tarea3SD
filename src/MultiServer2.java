@@ -18,10 +18,10 @@ public class MultiServer2 {
         //Se habre la conexion para el intercambio de mensajes
         Socket cliente = new Socket("10.6.40.193",53000);
 
-        //object = parser.parse(new FileReader("/root/tarea3SD/src/json/pacientes.json"));
-        //JsonArray jobject2 = (JsonArray) object;
-       // Paciente pacientes = new Paciente(jobject2);
-        //pacientes.archivo_log("");
+        object = parser.parse(new FileReader("/root/tarea3SD/src/json/pacientes.json"));
+        JsonArray jobject2 = (JsonArray) object;
+       Paciente pacientes = new Paciente(jobject2);
+        pacientes.archivo_log("");
         //JsonObject paciente = pacientes.datos_paciente(1);
 
         //Input y Output streams de la conexion
@@ -35,10 +35,14 @@ public class MultiServer2 {
             try {
                 s = ss.accept(); // Aceptando el request
                 System.out.println("New client request received");
-                // Inputs y outputs Streams
+                // Inputs y outputs Streams del socket
                 DataInputStream dis = new DataInputStream(s.getInputStream());
                 DataOutputStream dos = new DataOutputStream(s.getOutputStream());
                 String mensaje = dis.readUTF();// Se lee el mensaje
+                JsonParser parser2 = new JsonParser();
+                JsonObject pac = parser.parse(mensaje).getAsJsonObject();
+                JsonArray pacs = pac.getAsJsonArray();
+                pacientes.escribir_pacientes("/root/tarea3SD/src/json/pacientes.json", pacs);
                 System.out.println("Mensaje recibido: " + mensaje);
 
             }
