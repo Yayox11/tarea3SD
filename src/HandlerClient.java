@@ -66,10 +66,16 @@ public class HandlerClient extends Thread {
             DataOutputStream o54 = new DataOutputStream( maquina54.getOutputStream());
             DataOutputStream o55 = new DataOutputStream( maquina55.getOutputStream());
             DataOutputStream o56 = new DataOutputStream( maquina56.getOutputStream());
-            System.out.println("Enviando datos: " + pacientes.toString());
-            o54.writeUTF(pacientes.getPacientes().getAsString());
-            o55.writeUTF(pacientes.getPacientes().getAsString());
-            o56.writeUTF(pacientes.getPacientes().getAsString());
+            String cadena = "";
+            for(int i = 0; i < pacientes.getPacientes().size(); i++){
+                JsonObject pac = pacientes.getPacientes().get(i).getAsJsonObject();
+                String pacString = pac.toString();
+                cadena = cadena + pacString;
+            }
+            System.out.println("Enviando datos: " + cadena);
+            o54.writeUTF(cadena);
+            o55.writeUTF(cadena);
+            o56.writeUTF(cadena);
 
             maquina54.close();
             maquina55.close();
