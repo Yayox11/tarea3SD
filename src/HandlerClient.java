@@ -59,9 +59,9 @@ public class HandlerClient extends Thread {
 
     public static synchronized void enviarCambios(){
         try {
-            Socket maquina54 = new Socket("10.6,40.194", 6001);
-            Socket maquina55 =  new Socket("10.6,40.195", 6001);
-            Socket maquina56 = new Socket("10.6,40.196", 6001);
+            Socket maquina54 = new Socket("10.6,40.194", 53001);
+            Socket maquina55 =  new Socket("10.6,40.195", 53001);
+            Socket maquina56 = new Socket("10.6,40.196", 53001);
 
             DataOutputStream o54 = new DataOutputStream( maquina54.getOutputStream());
             DataOutputStream o55 = new DataOutputStream( maquina55.getOutputStream());

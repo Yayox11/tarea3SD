@@ -13,7 +13,7 @@ public class MultiServer2 {
         JsonParser parser = new JsonParser();
         Object object = null;
         //Servidor escuchando en el puerto 6000
-        ServerSocket ss = new ServerSocket(6001);
+        ServerSocket ss = new ServerSocket(53001);
         Socket s;
         Socket cliente = new Socket("10.6.40.193",53000);
 
