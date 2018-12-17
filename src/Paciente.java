@@ -20,6 +20,10 @@ public class Paciente {
         return (JsonObject) this.datos_pacientes.get(id-1);
     }
 
+    public JsonArray getPacientes(){
+        return this.datos_pacientes;
+    }
+
     public String editar_procedimiento(JsonObject requerimiento, String cargo){
         for (Map.Entry<String, JsonElement> e : requerimiento.entrySet()) {
             Integer llave = Integer.parseInt(e.getKey());

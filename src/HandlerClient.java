@@ -67,9 +67,9 @@ public class HandlerClient extends Thread {
             DataOutputStream o55 = new DataOutputStream( maquina55.getOutputStream());
             DataOutputStream o56 = new DataOutputStream( maquina56.getOutputStream());
             System.out.println("Enviando datos: " + pacientes.toString());
-            o54.writeUTF(pacientes.toString());
-            o55.writeUTF(pacientes.toString());
-            o56.writeUTF(pacientes.toString());
+            o54.writeUTF(pacientes.getPacientes().getAsString());
+            o55.writeUTF(pacientes.getPacientes().getAsString());
+            o56.writeUTF(pacientes.getPacientes().getAsString());
 
             maquina54.close();
             maquina55.close();
