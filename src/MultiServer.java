@@ -28,8 +28,6 @@ public class MultiServer {
         while(true){
             try {
                 s = ss.accept(); // Aceptando el request
-                System.out.println("New client request received");
-
                 // Inputs y outputs Streams
                 DataInputStream dis = new DataInputStream(s.getInputStream());
                 DataOutputStream dos = new DataOutputStream(s.getOutputStream());

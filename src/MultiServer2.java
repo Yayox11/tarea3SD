@@ -34,7 +34,6 @@ public class MultiServer2 {
         while(true){
             try {
                 s = ss.accept(); // Aceptando el request
-                System.out.println("New client request received");
                 // Inputs y outputs Streams del socket
                 DataInputStream dis = new DataInputStream(s.getInputStream());
                 DataOutputStream dos = new DataOutputStream(s.getOutputStream());
@@ -44,12 +43,10 @@ public class MultiServer2 {
                 if (pac.get("tipo").equals("requerimiento")) {
                     JsonArray pacs = pac.get("mensaje").getAsJsonArray();
                     pacientes.escribir_pacientes("/root/tarea3SD/src/json/pacientes.json", pacs);
-                    System.out.println("Copia Recibida");
                 }
 
                 else{
                     pacientes.archivo_log(pac.get("mensaje").getAsString());
-                    System.out.println("Log recibido");
                 }
 
 
