@@ -26,9 +26,9 @@ public class HandlerClient extends Thread {
         this.pacientes = pacientes;
     }
 
-    public static synchronized void getElement(){
-        System.out.println("id siendo utilizada: "+ numThreads);
-    }
+    //public static synchronized void getElement(){
+       // System.out.println("id siendo utilizada: "+ numThreads);
+    //}
 
     public static synchronized void editarPacientes(JsonObject procedimiento, String cargo){
         pacientes.editar_procedimiento(procedimiento, cargo);
@@ -123,8 +123,8 @@ public class HandlerClient extends Thread {
             }
             enviarCambios();
             escribirArchivo();
-            System.out.println(requerimientos);
-            getElement();
+            //System.out.println(requerimientos);
+           // getElement();
             numThreads++;
         }
 
