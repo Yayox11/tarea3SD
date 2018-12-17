@@ -11,19 +11,21 @@ import java.util.logging.SimpleFormatter;
 public class Paciente {
     private JsonArray datos_pacientes;
     private int accesos = 0;
-
+    // Poblar el array de la clase
     public Paciente(JsonArray datos_pacientes) {
         this.datos_pacientes = datos_pacientes;
     }
-
+    // Retornar el dato de un paciente basado en el id
     public JsonObject datos_paciente(Integer id){
         return (JsonObject) this.datos_pacientes.get(id-1);
     }
-
+    // Retornar el array de datos de los pacientes
     public JsonArray getPacientes(){
         return this.datos_pacientes;
     }
 
+    // Segun el requerimiento de la forma {"1":"pedir tomografia"} se valida si es correcto
+    // quien solicito el procedimiento y se agrega en el array de datos de clientes segun corresponda
     public String editar_procedimiento(JsonObject requerimiento, String cargo){
         for (Map.Entry<String, JsonElement> e : requerimiento.entrySet()) {
             Integer llave = Integer.parseInt(e.getKey());
@@ -68,7 +70,7 @@ public class Paciente {
             }
         return "Ok";
     }
-
+    // Escribir el archivo json con los datos de los pacientes
     public void escribir_pacientes(String path, JsonArray arreglo){
         try {
             Writer file = new FileWriter(path);
@@ -82,7 +84,7 @@ public class Paciente {
             e.printStackTrace();
         }
     }
-
+    // Funcion que escribe un archivo json con los datos de los pacientes a usar en el servidor
     public void escribirServidor(String path){
         try {
             Writer file = new FileWriter(path);
@@ -96,7 +98,7 @@ public class Paciente {
         }
 
     }
-
+    // Funcion para ir creando y agregando en el archivo log los sucesos que van ocurriendo
     public void archivo_log(String info){
         Logger logger = Logger.getLogger("MyLog");
         FileHandler fh;

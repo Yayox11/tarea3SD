@@ -17,3 +17,4 @@ Consideraciones:
 	  pedir para examenes en la seccion no realizados, realizar para examenes en la seccion realizados,
 	  colocar para tratamientos/procedimientos en la sección completados, asignar para tratamientos/procedimientos
 	  en la sección asignados y suministrar para medicamentos en la sección suministrados.
+	- Se considera que el array de pacientes viene ordenado por id.

@@ -17,11 +17,11 @@
 
     "cargo": "doctor",
 
-    "pacientes": [{"1": "recetar PicoenelOjo"},
+    "pacientes": [{"1": "recetar paracetamol"},
 
-      {"2": "recetar tulazo"},
+      {"2": "recetar paracetamol"},
 
-      {"1": "pedir rayosx"},
+      {"1": "pedir aspirina"},
 
       {"1":"colocar inyeccion"}
 

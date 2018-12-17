@@ -9,7 +9,7 @@ public class Hospital {
     private JsonArray enfermeros;
     private JsonArray paramedicos;
     private Integer anios_totales;
-
+    // Constructor del hospital que instancia los datos del staff
     public Hospital(JsonObject datos) {
         this.doctores = datos.getAsJsonArray("Doctor");
         this.enfermeros = datos.getAsJsonArray("enfermero");
@@ -22,7 +22,7 @@ public class Hospital {
         }
     }
     
-
+    // Funcion para obtener los datos de algun miembro
     public String obtener_datos(String trabajador, String elemento, Integer posicion){
         if (trabajador.equals("Doctor")){
             return ((JsonObject)this.doctores.get(posicion-1)).get(elemento).toString();
@@ -34,7 +34,7 @@ public class Hospital {
             return ((JsonObject)this.paramedicos.get(posicion-1)).get(elemento).toString();
         }
     }
-
+    // Retorna la experiencia total del hospital
     public Integer obtener_experiencia(){
         return this.anios_totales;
     }

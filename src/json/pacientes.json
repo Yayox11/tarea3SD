@@ -38,13 +38,13 @@
 
     "rut":"00.000.000-1",
 
-    "edad":"69"
+    "edad":"80"
 
   }],
 
   "enfermedades":
 
-  ["cancer", "sida"],
+  ["cancer", "diabetes"],
 
   "tratamientos/procedimientos":
 
