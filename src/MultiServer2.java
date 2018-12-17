@@ -33,6 +33,7 @@ public class MultiServer2 {
 
         while(true){
             try {
+                System.out.println("----->Esperando!!!");
                 s = ss.accept(); // Aceptando el request
                 System.out.println("New client request received");
                 // Inputs y outputs Streams
