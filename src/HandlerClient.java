@@ -17,8 +17,7 @@ public class HandlerClient extends Thread {
     volatile static int numThreads = 0;
     volatile static Paciente pacientes;
 
-
-
+//Constructor del Thread
     public HandlerClient(DataInputStream dis, DataOutputStream dos, Paciente pacientes){
         this.colaReqPendientes = new LinkedList<JsonObject>();
         this.dis = dis;
@@ -34,7 +33,7 @@ public class HandlerClient extends Thread {
         pacientes.editar_procedimiento(procedimiento, cargo);
     }
 
-
+//Verifica si actualmente un paciente esta siendo utilizado
     public static synchronized Boolean editandoPaciente(String id){
         return lista_pacientes_editando.contains(id);
     }
@@ -42,7 +41,7 @@ public class HandlerClient extends Thread {
         lista_pacientes_editando.remove(id);
 
     }
-
+//Identifica si quedan requerimientos por satisfacer
     public Boolean quedanReq(){
         if (colaReqPendientes.size() > 0){
             return true;
@@ -52,17 +51,19 @@ public class HandlerClient extends Thread {
             return false;
         }
     }
-
+//Escritura en el archivo local de los pacientes (para los cambios)
     public static synchronized void escribirArchivo(){
         pacientes.escribirServidor("/root/tarea3SD/src/json/pacientes.json");
     }
 
+    //Envio de los cambios a los clientes
     public static synchronized void enviarCambios(){
         try {
+            //Conexion a los sockets de los clientes
             Socket maquina54 = new Socket("10.6.40.194", 53001);
             Socket maquina55 =  new Socket("10.6.40.195", 53001);
             Socket maquina56 = new Socket("10.6.40.196", 53001);
-
+            //Output streams hacia los clientes
             DataOutputStream o54 = new DataOutputStream( maquina54.getOutputStream());
             DataOutputStream o55 = new DataOutputStream( maquina55.getOutputStream());
             DataOutputStream o56 = new DataOutputStream( maquina56.getOutputStream());
@@ -72,11 +73,12 @@ public class HandlerClient extends Thread {
                 String pacString = pac.toString();
                 cadena = cadena + pacString;
             }
-            System.out.println("Enviando datos: " + cadena);
+            //System.out.println("Enviando datos: " + cadena);
+            //Envio de los datos hacia los clientes
             o54.writeUTF(cadena);
             o55.writeUTF(cadena);
             o56.writeUTF(cadena);
-
+            //Cierre de los sockets
             maquina54.close();
             maquina55.close();
             maquina56.close();
@@ -100,23 +102,27 @@ public class HandlerClient extends Thread {
 
 
             for (int i = 0; i< requerimientos.size(); i++){
+                //Obtencion del requrimiento
                 JsonObject req = requerimientos.get(i).getAsJsonObject();
                 String [] split = requerimiento.toString().split(" ");
                 String id_pacienteEditar = split[0];
+                //Verificar si el paciente esta siendo editado
                 if(!editandoPaciente(id_pacienteEditar)){
                     lista_pacientes_editando.add(id_pacienteEditar);
                     editarPacientes(req, usuario.get("cargo").getAsString());
                     removeEditando(id_pacienteEditar);
                 }
                 else{
+                    //Agrega a la cola de requerimientos pendientes
                     colaReqPendientes.add(req);
                 }
             }
+            //Verificación de que quedan requerimientos por satisfacer
             while(quedanReq()){
-                System.out.println("SE QUEDO EN EL WHILE");
                 JsonObject req = colaReqPendientes.element().getAsJsonObject();
                 String[] split = req.toString().split(" ");
                 String id_pacienteEditar = split[0];
+                //Verifica que no se este ocupando
                 if (!editandoPaciente(id_pacienteEditar)){
                     lista_pacientes_editando.add(id_pacienteEditar);
                     editarPacientes(req, usuario.get("cargo").getAsString());
@@ -127,10 +133,11 @@ public class HandlerClient extends Thread {
                     colaReqPendientes.add(req);
                 }
             }
+            //Envia los cambios a los clientes
             enviarCambios();
+            //Escribe los cambios en el archivo local
             escribirArchivo();
-            //System.out.println(requerimientos);
-           // getElement();
+
             numThreads++;
         }
 

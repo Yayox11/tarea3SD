@@ -15,11 +15,12 @@ public class MultiServer {
         System.out.println("Servidor arriba!!!!");
         JsonParser parser = new JsonParser();
         Object object = null;
+        //Lectura del archivo Json con los pacientes
         object = parser.parse(new FileReader("/root/tarea3SD/src/json/pacientes.json"));
         JsonArray pacientes = (JsonArray) object;
         Paciente paciente = new Paciente(pacientes);
 
-        //Servidor escuchando en el puerto 6000
+        //Servidor escuchando en el puerto 53000
         ServerSocket ss = new ServerSocket(53000);
         Socket s;
 
@@ -31,14 +32,9 @@ public class MultiServer {
                 // Inputs y outputs Streams
                 DataInputStream dis = new DataInputStream(s.getInputStream());
                 DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+                // Thread que manejara la llegada de solicitudes de requerimientos (manejo concurrente)
                 HandlerClient t = new HandlerClient(dis, dos, paciente);
                 t.start();
-                //dos.writeUTF("SI ESTOY CTM!!!");
-                //String mensaje = dis.readUTF();
-                //JsonParser parser = new JsonParser();
-                //JsonObject paciente = parser.parse(mensaje).getAsJsonObject();
-                //System.out.println("Mensaje recibido: " + mensaje);
-                //System.out.println("JSON :"+ paciente.get("cargo"));
 
             }
 

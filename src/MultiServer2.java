@@ -12,35 +12,33 @@ public class MultiServer2 {
     public static void main(String[] args) throws IOException {
         JsonParser parser = new JsonParser();
         Object object = null;
-        //Servidor escuchando en el puerto 6000
+        //Servidor escuchando en el puerto 53001
         ServerSocket ss = new ServerSocket(53001);
         Socket s;
+        //Se habre la conexion para el intercambio de mensajes
         Socket cliente = new Socket("10.6.40.193",53000);
 
-        object = parser.parse(new FileReader("/root/tarea3SD/src/json/pacientes.json"));
-        JsonArray jobject2 = (JsonArray) object;
-        Paciente pacientes = new Paciente(jobject2);
-        pacientes.archivo_log("");
-        JsonObject paciente = pacientes.datos_paciente(1);
+        //object = parser.parse(new FileReader("/root/tarea3SD/src/json/pacientes.json"));
+        //JsonArray jobject2 = (JsonArray) object;
+       // Paciente pacientes = new Paciente(jobject2);
+        //pacientes.archivo_log("");
+        //JsonObject paciente = pacientes.datos_paciente(1);
 
+        //Input y Output streams de la conexion
         DataOutputStream salida_servidor = new DataOutputStream(cliente.getOutputStream());
         DataInputStream entrada_servidor = new DataInputStream(cliente.getInputStream());
+        //Thread que manejara la solicitud de los requerimientos
         HacerRequerimientos threadReq = new HacerRequerimientos();
         threadReq.start();
-        //salida_servidor.writeUTF(paciente.toString());
-        //String mensajeServidor = entrada_servidor.readUTF();
-        //System.out.println(mensajeServidor);
 
         while(true){
             try {
-                System.out.println("----->Esperando!!!");
                 s = ss.accept(); // Aceptando el request
                 System.out.println("New client request received");
                 // Inputs y outputs Streams
                 DataInputStream dis = new DataInputStream(s.getInputStream());
                 DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-
-                String mensaje = dis.readUTF();
+                String mensaje = dis.readUTF();// Se lee el mensaje
                 System.out.println("Mensaje recibido: " + mensaje);
 
             }
